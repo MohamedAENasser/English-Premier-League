@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF158FCF29CB74D100496F65 /* FixturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158FCE29CB74D100496F65 /* FixturesView.swift */; };
+		CF158FD129CB74D900496F65 /* FixturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158FD029CB74D900496F65 /* FixturesViewModel.swift */; };
 		CF24A62129CA50790027BFC0 /* EnglishPremierLeagueApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF24A62029CA50790027BFC0 /* EnglishPremierLeagueApp.swift */; };
-		CF24A62329CA50790027BFC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF24A62229CA50790027BFC0 /* ContentView.swift */; };
 		CF24A62529CA507B0027BFC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF24A62429CA507B0027BFC0 /* Assets.xcassets */; };
 		CF24A62829CA507B0027BFC0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF24A62729CA507B0027BFC0 /* Preview Assets.xcassets */; };
 		CF24A63429CA82C70027BFC0 /* FixturesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF24A63329CA82C70027BFC0 /* FixturesResponse.swift */; };
@@ -20,9 +21,10 @@
 		6D35F6B0B665266D39E12247 /* Pods-EnglishPremierLeague.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishPremierLeague.release.xcconfig"; path = "Target Support Files/Pods-EnglishPremierLeague/Pods-EnglishPremierLeague.release.xcconfig"; sourceTree = "<group>"; };
 		82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnglishPremierLeague.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C24A8D9402334CA220881399 /* Pods-EnglishPremierLeague.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishPremierLeague.debug.xcconfig"; path = "Target Support Files/Pods-EnglishPremierLeague/Pods-EnglishPremierLeague.debug.xcconfig"; sourceTree = "<group>"; };
+		CF158FCE29CB74D100496F65 /* FixturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesView.swift; sourceTree = "<group>"; };
+		CF158FD029CB74D900496F65 /* FixturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesViewModel.swift; sourceTree = "<group>"; };
 		CF24A61D29CA50790027BFC0 /* EnglishPremierLeague.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishPremierLeague.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF24A62029CA50790027BFC0 /* EnglishPremierLeagueApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishPremierLeagueApp.swift; sourceTree = "<group>"; };
-		CF24A62229CA50790027BFC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CF24A62429CA507B0027BFC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF24A62729CA507B0027BFC0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CF24A63329CA82C70027BFC0 /* FixturesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesResponse.swift; sourceTree = "<group>"; };
@@ -58,6 +60,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CF158FCB29CB459000496F65 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CF158FCE29CB74D100496F65 /* FixturesView.swift */,
+				CF158FD029CB74D900496F65 /* FixturesViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CF24A61429CA50790027BFC0 = {
 			isa = PBXGroup;
 			children = (
@@ -79,10 +90,10 @@
 		CF24A61F29CA50790027BFC0 /* EnglishPremierLeague */ = {
 			isa = PBXGroup;
 			children = (
+				CF158FCB29CB459000496F65 /* Views */,
 				CF24A63229CA82AF0027BFC0 /* Models */,
 				CF24A62E29CA75C70027BFC0 /* Network */,
 				CF24A62029CA50790027BFC0 /* EnglishPremierLeagueApp.swift */,
-				CF24A62229CA50790027BFC0 /* ContentView.swift */,
 				CF24A62429CA507B0027BFC0 /* Assets.xcassets */,
 				CF24A62629CA507B0027BFC0 /* Preview Content */,
 			);
@@ -227,10 +238,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF24A62329CA50790027BFC0 /* ContentView.swift in Sources */,
 				CF24A63429CA82C70027BFC0 /* FixturesResponse.swift in Sources */,
 				CF24A63629CA83710027BFC0 /* EnglishLeagueTarget.swift in Sources */,
 				CF24A62129CA50790027BFC0 /* EnglishPremierLeagueApp.swift in Sources */,
+				CF158FD129CB74D900496F65 /* FixturesViewModel.swift in Sources */,
+				CF158FCF29CB74D100496F65 /* FixturesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,5 +6,6 @@ target 'EnglishPremierLeague' do
   use_frameworks!
 
   pod 'Moya'
+  pod 'Moya/Combine'
 
 end
