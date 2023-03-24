@@ -20,6 +20,11 @@ struct Match: Codable, Identifiable {
     let score: Score?
     let status: String
     let utcDate: String
+    var matchDate: Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return dateFormatter.date(from: utcDate) ?? Date()
+    }
 
     enum CodingKeys: String, CodingKey {
         case id

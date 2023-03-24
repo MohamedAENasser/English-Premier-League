@@ -34,9 +34,8 @@ class FixtureCellViewModel: ObservableObject {
     }
 
     private func setupMatchTime() {
+        guard let date = match?.matchDate else { return }
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        guard let date = dateFormatter.date(from: match?.utcDate ?? "") else { return }
         dateFormatter.dateFormat = "hh:mm"
         matchTime = dateFormatter.string(from: date)
     }

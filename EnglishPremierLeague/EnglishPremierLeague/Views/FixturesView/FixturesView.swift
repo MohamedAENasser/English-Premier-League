@@ -12,22 +12,26 @@ struct FixturesView: View {
     @StateObject private var viewModel = FixturesViewModel()
 
     var body: some View {
-        ZStack {
-            NavigationView {
+        NavigationView {
+            ScrollViewReader { scrollReader in
                 List() {
-                    ForEach(viewModel.matches) { match in
-                        Section(header: Text(match.utcDate)) {
-                            FixtureCell(match: match)
+                    ForEach(Array(viewModel.matchesPerDay.keys).sorted(by: <), id: \.self) { day in
+                        Section(header: Text(day)) {
+                            ForEach(viewModel.matchesPerDay[day] ?? []) { match in
+                                FixtureCell(match: match)
+                            }
                         }
                     }
                 }
+                .background(Color.purple)
+                .scrollContentBackground(.hidden)
                 .navigationTitle("Premier league")
-                .background(
-                    Image("premier-league-english-football")
-                        .resizable()
-                )
+                .listStyle(.insetGrouped)
             }
-            .onAppear {viewModel.getMatches() }
+        }
+        .onAppear {
+            viewModel.getMatches()
+
         }
     }
 }

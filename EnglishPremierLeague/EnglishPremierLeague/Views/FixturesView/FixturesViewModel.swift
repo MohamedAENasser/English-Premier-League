@@ -10,7 +10,7 @@ import Moya
 import Combine
 
 class FixturesViewModel: ObservableObject {
-    @Published var matches: [Match] = []
+    @Published var matchesPerDay: [String : [Match]] = [:]
     private var cancellable: AnyCancellable?
 
     func getMatches() {
@@ -32,8 +32,11 @@ class FixturesViewModel: ObservableObject {
 
             }, receiveValue: { [weak self] response in
 
-                self?.matches = response
-
+                self?.matchesPerDay = Dictionary(grouping: response) { (match) -> String in
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    return dateFormatter.string(from: match.matchDate)
+                }
             })
     }
 }
