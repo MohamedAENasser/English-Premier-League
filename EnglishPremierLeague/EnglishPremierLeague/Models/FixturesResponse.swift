@@ -8,18 +8,18 @@
 import Foundation
 
 // MARK: - FixturesResponse
-struct FixturesResponse: Codable {
-    let matches: [Match]
+struct FixturesResponse<T: Codable>: Codable {
+    let matches: [T]
 }
 
 // MARK: - Match
-struct Match: Codable {
+struct Match: Codable, Identifiable {
     let id: Int
     let awayTeam, homeTeam: Team
     let matchDay: Int
     let score: Score?
     let status: String
-    let utcDate: String?
+    let utcDate: String
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -48,4 +48,16 @@ struct Score: Codable {
 // MARK: - ExtraTime
 struct TimeModel: Codable {
     let awayTeam, homeTeam: Int?
+}
+
+enum MatchSatus: String {
+    case scheduled = "SCHEDULED"
+    case finished = "FINISHED"
+    case postponed = "POSTPONED"
+}
+
+enum MatchWinner: String {
+    case homeTeam = "HOME_TEAM"
+    case awayTeam = "AWAY_TEAM"
+    case draw = "DRAW"
 }

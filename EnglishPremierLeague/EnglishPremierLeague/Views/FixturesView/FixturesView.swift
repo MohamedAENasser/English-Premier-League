@@ -14,8 +14,12 @@ struct FixturesView: View {
     var body: some View {
         ZStack {
             NavigationView {
-                List(viewModel.matches, id: \.id) { match in
-                    Text(match.homeTeam.name)
+                List() {
+                    ForEach(viewModel.matches) { match in
+                        Section(header: Text(match.utcDate)) {
+                            FixtureCell(match: match)
+                        }
+                    }
                 }
                 .navigationTitle("Premier league")
                 .background(
@@ -23,10 +27,8 @@ struct FixturesView: View {
                         .resizable()
                 )
             }
-
             .onAppear {viewModel.getMatches() }
         }
-        .padding()
     }
 }
 

@@ -20,7 +20,7 @@ class FixturesViewModel: ObservableObject {
         let publisher = provider.requestPublisher(.matches)
             .receive(on: DispatchQueue.main)
             .map(\.data)
-            .decode(type: FixturesResponse.self, decoder: JSONDecoder())
+            .decode(type: FixturesResponse<Match>.self, decoder: JSONDecoder())
             .map(\.matches)
 
         // Setup subscriber
@@ -28,7 +28,6 @@ class FixturesViewModel: ObservableObject {
             .sink(receiveCompletion: { completion in
 
                 guard case let .failure(error) = completion else { return }
-
                 print(error) // TODO: Error Handling
 
             }, receiveValue: { [weak self] response in
