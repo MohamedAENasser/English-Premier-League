@@ -10,9 +10,17 @@ import Moya
 import Combine
 
 class FixturesViewModel: ObservableObject {
-    @Published var matchesPerDay: [String : [Match]] = [:]
+    @Published var visibleDays: [String] = []
     private var cancellable: AnyCancellable?
 
+    // MARK: - Helper properties
+    var fullMatchesList: [String : [Match]] = [:]
+    private var fullDaysStringList: [String] = []
+    private var fullDaysDateList: [Date] = []
+    private var mostRecentDayIndex: Int = 0
+    private var loadDaysCount: Int = 1
+
+    /// Get matches data from the backend.
     func getMatches() {
         let provider = MoyaProvider<EnglishLeagueTarget>()
 
@@ -32,11 +40,45 @@ class FixturesViewModel: ObservableObject {
 
             }, receiveValue: { [weak self] response in
 
-                self?.matchesPerDay = Dictionary(grouping: response) { (match) -> String in
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd"
-                    return dateFormatter.string(from: match.matchDate)
-                }
+                self?.setupDatesData(from: response)
+
             })
+    }
+
+    /// Load more matches from previous days.
+    func loadMoreMatches() {
+        if mostRecentDayIndex == 0 { return }
+        let maxIndex = mostRecentDayIndex
+        mostRecentDayIndex = max(mostRecentDayIndex - loadDaysCount, 0)
+        visibleDays.append(contentsOf: fullDaysStringList[mostRecentDayIndex..<maxIndex])
+        loadDaysCount = min(loadDaysCount + 1, 7) // increase days loaded every time to facilitate the user loading more days will lower effort, with maximum of week (7 days) per time
+    }
+
+    private func setupDatesData(from matchesList: [Match]) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = String.fixturesDateFormate()
+
+        fullMatchesList = Dictionary(grouping: matchesList) { (match) -> String in
+            dateFormatter.string(from: match.matchDate)
+        }
+
+        // Setup Helper properties that will be used later for filtration and load
+        fullDaysStringList = Array(fullMatchesList.keys).sorted(by: <)
+        fullDaysDateList = fullDaysStringList.map { dateFormatter.date(from: $0) ?? Date() }
+
+        setupMostRecentMatchesDay()
+        setupInitialVisibleDays()
+    }
+
+    /// Getting the matches that will be played today or tomorrow, if nothing found then will pickup the most recent upcoming day that has matches.
+    private func setupMostRecentMatchesDay() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = String.fixturesDateFormate()
+        mostRecentDayIndex = fullDaysDateList.firstIndex(where: { $0 >= Date() }) ?? 0
+    }
+
+    /// Setup initial visible matches to be the most recent for today or the nearest upcoming day.
+    private func setupInitialVisibleDays() {
+        visibleDays = Array(fullDaysStringList[mostRecentDayIndex..<fullDaysStringList.count])
     }
 }

@@ -13,25 +13,32 @@ struct FixturesView: View {
 
     var body: some View {
         NavigationView {
-            ScrollViewReader { scrollReader in
-                List() {
-                    ForEach(Array(viewModel.matchesPerDay.keys).sorted(by: <), id: \.self) { day in
-                        Section(header: Text(day)) {
-                            ForEach(viewModel.matchesPerDay[day] ?? []) { match in
-                                FixtureCell(match: match)
-                            }
-                        }
+            List() {
+                ForEach(Array(viewModel.visibleDays).sorted(by: <), id: \.self) { day in
+                    if let matches = viewModel.fullMatchesList[day], !matches.isEmpty {
+                        daySectionView(from: day, matches: matches)
                     }
                 }
-                .background(Color.purple)
-                .scrollContentBackground(.hidden)
-                .navigationTitle("Premier league")
-                .listStyle(.insetGrouped)
             }
+            .refreshable {
+                viewModel.loadMoreMatches()
+            }
+            .background(Color.purple)
+            .scrollContentBackground(.hidden)
+            .navigationTitle("Premier league")
+            .listStyle(.insetGrouped)
         }
         .onAppear {
             viewModel.getMatches()
 
+        }
+    }
+
+    func daySectionView(from day: String, matches: [Match]) -> some View {
+        Section(header: Text(day)) {
+            ForEach(matches) { match in
+                FixtureCell(match: match)
+            }
         }
     }
 }
