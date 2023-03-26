@@ -5,8 +5,6 @@
 //  Created by Mohamed Abd ElNasser on 23/03/2023.
 //
 
-import Foundation
-
 import SwiftUI
 
 struct FixtureCell: View {

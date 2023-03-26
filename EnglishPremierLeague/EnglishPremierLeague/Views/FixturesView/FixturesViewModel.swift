@@ -6,12 +6,11 @@
 //
 
 import Foundation
-import Moya
 import Combine
 
 class FixturesViewModel: ObservableObject {
     @Published var state: AppState = .loading
-    private var cancellable: AnyCancellable?
+    var fixturesService: FixturesServiceProtocol = FixturesService()
 
     // MARK: - Helper properties
     private var fullMatchesList: [String : [Match]] = [:]
@@ -22,45 +21,18 @@ class FixturesViewModel: ObservableObject {
     private var loadDaysCount: Int = 1
 
     /// Get matches data from the backend.
-    func getMatches() {
+    @MainActor
+    func getMatches() async {
         state = .loading
-        let provider = MoyaProvider<EnglishLeagueTarget>()
+        subscribeForStateChanges()
 
-        // Setup publisher
-        let publisher = provider.requestPublisher(.matches)
-            .receive(on: DispatchQueue.main)
-            .map(\.data)
-            .decode(type: FixturesResponse<Match>.self, decoder: JSONDecoder())
-            .map(\.matches)
-
-        // Setup subscriber
-        cancellable = publisher
-            .sink(receiveCompletion: { completion in
-
-                guard case .failure = completion else { return }
-                self.state = .failure(.failedToLoadData)
-
-            }, receiveValue: { [weak self] response in
-
-                self?.setupDatesData(from: response)
-
-            })
-
-        // Handle state changes
-        $state.subscribe(Subscribers.Sink(
-            receiveCompletion: { _ in
-            }, receiveValue: { [weak self] state in
-                guard let self else { return }
-                switch state {
-                case .success(let array):
-                    self.visibleDaysStringList = array
-                case .update(let array):
-                    self.visibleDaysStringList.append(contentsOf: array)
-                default:
-                    break
-                }
-            })
-        )
+        let result = await fixturesService.getMatches()
+        switch result {
+        case .success(let matchesList):
+            setupDatesData(from: matchesList)
+        case .failure(let error):
+            state = .failure(error)
+        }
     }
 
     /// Load more matches from previous days.
@@ -83,6 +55,24 @@ class FixturesViewModel: ObservableObject {
             }
         }
         return matchesPerDay
+    }
+
+    private func subscribeForStateChanges() {
+        // Handle state changes
+        $state.subscribe(Subscribers.Sink(
+            receiveCompletion: { _ in
+            }, receiveValue: { [weak self] state in
+                guard let self else { return }
+                switch state {
+                case .success(let array):
+                    self.visibleDaysStringList = array
+                case .update(let array):
+                    self.visibleDaysStringList.append(contentsOf: array)
+                default:
+                    break
+                }
+            })
+        )
     }
 
     private func setupDatesData(from matchesList: [Match]) {

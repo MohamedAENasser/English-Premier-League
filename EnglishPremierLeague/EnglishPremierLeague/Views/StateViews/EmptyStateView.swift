@@ -12,7 +12,7 @@ struct EmptyStateView: View {
 
     var body: some View {
         let labelText = type == .allMatches ?
-        " Stay tuned! 🔥 \n\nThere are no available matches in the meantime.":
+        "Stay tuned! 🔥 \n\nThere are no available matches in the meantime.":
         "You didn't add matches as a favorite yet.\n\nMark your favorite matches and you'll see them here ⭐️"
         Text(labelText)
             .font(.title)

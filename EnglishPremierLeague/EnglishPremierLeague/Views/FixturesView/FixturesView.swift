@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Moya
 
 struct FixturesView: View {
     @EnvironmentObject private var viewModel: FixturesViewModel
@@ -41,13 +40,17 @@ struct FixturesView: View {
             case .failure(let error):
 
                 ErrorView(error: error) {
-                    viewModel.getMatches()
+                    Task {
+                        await viewModel.getMatches()
+                    }
                 }
 
             }
         }
         .onAppear {
-            viewModel.getMatches()
+            Task {
+                await viewModel.getMatches()
+            }
         }
     }
 

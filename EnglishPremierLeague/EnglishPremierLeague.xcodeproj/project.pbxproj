@@ -24,6 +24,7 @@
 		CF6A5F2E29D05E0300267D85 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2D29D05E0300267D85 /* ErrorView.swift */; };
 		CF6A5F3029D05EC700267D85 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2F29D05EC700267D85 /* AppError.swift */; };
 		CF6A5F3229D0874700267D85 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F3129D0874700267D85 /* EmptyStateView.swift */; };
+		CF6A5F4229D0ACDA00267D85 /* FixturesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F4129D0ACDA00267D85 /* FixturesService.swift */; };
 		EF7AFA95B94547A8652DDBDB /* Pods_EnglishPremierLeague.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		CF6A5F2D29D05E0300267D85 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		CF6A5F2F29D05EC700267D85 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		CF6A5F3129D0874700267D85 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		CF6A5F4129D0ACDA00267D85 /* FixturesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		CF24A61F29CA50790027BFC0 /* EnglishPremierLeague */ = {
 			isa = PBXGroup;
 			children = (
+				CF6A5F4329D0D3F600267D85 /* Services */,
 				CF158FCB29CB459000496F65 /* Views */,
 				CF24A63229CA82AF0027BFC0 /* Models */,
 				CF6A5F1D29CFB78600267D85 /* Extensions */,
@@ -200,6 +203,14 @@
 				CF6A5F3129D0874700267D85 /* EmptyStateView.swift */,
 			);
 			path = StateViews;
+			sourceTree = "<group>";
+		};
+		CF6A5F4329D0D3F600267D85 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CF6A5F4129D0ACDA00267D85 /* FixturesService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +332,7 @@
 				CF6A5F1229CBD2B000267D85 /* FixtureCellViewModel.swift in Sources */,
 				CF24A63429CA82C70027BFC0 /* FixturesResponse.swift in Sources */,
 				CF6A5F2829CFD33600267D85 /* AppState.swift in Sources */,
+				CF6A5F4229D0ACDA00267D85 /* FixturesService.swift in Sources */,
 				CF6A5F2629CFD2EB00267D85 /* LoadingView.swift in Sources */,
 				CF6A5F1C29CFA0FE00267D85 /* FavoriteButton.swift in Sources */,
 				CF6A5F1029CBBFF300267D85 /* FixtureCell.swift in Sources */,

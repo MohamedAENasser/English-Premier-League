@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Moya
 import Combine
 
 class FixtureCellViewModel: ObservableObject {
