@@ -23,6 +23,7 @@
 		CF6A5F2829CFD33600267D85 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2729CFD33600267D85 /* AppState.swift */; };
 		CF6A5F2E29D05E0300267D85 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2D29D05E0300267D85 /* ErrorView.swift */; };
 		CF6A5F3029D05EC700267D85 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2F29D05EC700267D85 /* AppError.swift */; };
+		CF6A5F3229D0874700267D85 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F3129D0874700267D85 /* EmptyStateView.swift */; };
 		EF7AFA95B94547A8652DDBDB /* Pods_EnglishPremierLeague.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		CF6A5F2729CFD33600267D85 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		CF6A5F2D29D05E0300267D85 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		CF6A5F2F29D05EC700267D85 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		CF6A5F3129D0874700267D85 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 			children = (
 				CF6A5F2529CFD2EB00267D85 /* LoadingView.swift */,
 				CF6A5F2D29D05E0300267D85 /* ErrorView.swift */,
+				CF6A5F3129D0874700267D85 /* EmptyStateView.swift */,
 			);
 			path = StateViews;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				CF24A63629CA83710027BFC0 /* EnglishLeagueTarget.swift in Sources */,
 				CF24A62129CA50790027BFC0 /* EnglishPremierLeagueApp.swift in Sources */,
 				CF158FD129CB74D900496F65 /* FixturesViewModel.swift in Sources */,
+				CF6A5F3229D0874700267D85 /* EmptyStateView.swift in Sources */,
 				CF6A5F2E29D05E0300267D85 /* ErrorView.swift in Sources */,
 				CF158FCF29CB74D100496F65 /* FixturesView.swift in Sources */,
 			);

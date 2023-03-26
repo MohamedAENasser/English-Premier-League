@@ -15,7 +15,7 @@ enum EnglishLeagueTarget {
 
 extension EnglishLeagueTarget: TargetType {
     var baseURL: URL {
-        URL(string: "https://api.football-data.org/v2/competitions/2021") ?? URL(string: "")! // TODO: - Better default value
+        URL(string: "https://api.football-data.org/v2/competitions/2021")!
     }
 
     var path: String {

@@ -8,6 +8,11 @@
 import Foundation
 
 enum AppState: Equatable {
+    enum EmptyStateType {
+        case allMatches
+        case favorites
+    }
+
     case loading
     case success([String])
     case update([String])

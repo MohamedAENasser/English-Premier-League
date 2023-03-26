@@ -24,8 +24,14 @@ struct FixturesView: View {
             case .success, .update:
 
                 NavigationView {
-                    matchesListView
-                        .navigationTitle("Premier league")
+                    ZStack {
+                        matchesListView
+                        if filteredMatches.isEmpty {
+                            EmptyStateView(type: shouldShowFavoritesOnly ? .favorites : .allMatches)
+                            Spacer()
+                        }
+                    }
+                    .navigationTitle("Premier league")
                 }
 
             case .loading:
