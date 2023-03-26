@@ -18,31 +18,47 @@ struct FixturesView: View {
 
     var body: some View {
         ZStack {
-            NavigationView {
-                List() {
-                    showFavoritesToggleView
-                    ForEach(Array(filteredMatches.keys).sorted(by: <), id: \.self) { day in
-                        if let matches = filteredMatches[day], !matches.isEmpty {
-                            daySectionView(from: day, matches: matches)
-                        }
-                    }
+            //MARK: - Handle App States
+            switch viewModel.state {
+
+            case .success, .update:
+
+                NavigationView {
+                    matchesListView
+                        .navigationTitle("Premier league")
                 }
-                .refreshable {
-                    guard !shouldShowFavoritesOnly else { return }
-                    viewModel.loadMoreMatches()
-                }
-                .background(Color.purple)
-                .scrollContentBackground(.hidden)
-                .navigationTitle("Premier league")
-                .listStyle(.insetGrouped)
-            }
-            .onAppear {
-                viewModel.getMatches()
-            }
-            if viewModel.state == .loading {
+
+            case .loading:
+
                 LoadingView()
+
+            case .failure(let error):
+
+                ErrorView(error: error) {
+                    viewModel.getMatches()
+                }
+
             }
         }
+        .onAppear {
+            viewModel.getMatches()
+        }
+    }
+
+    var matchesListView: some View {
+        List() {
+            showFavoritesToggleView
+            ForEach(Array(filteredMatches.keys).sorted(by: <), id: \.self) { day in
+                daySectionView(from: day, matches: filteredMatches[day] ?? [])
+            }
+        }
+        .refreshable {
+            guard !shouldShowFavoritesOnly else { return }
+            viewModel.loadMoreMatches()
+        }
+        .background(Color.purple)
+        .scrollContentBackground(.hidden)
+        .listStyle(.insetGrouped)
     }
 
     var showFavoritesToggleView: some View {

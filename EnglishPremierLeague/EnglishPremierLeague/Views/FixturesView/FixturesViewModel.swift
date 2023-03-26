@@ -37,8 +37,8 @@ class FixturesViewModel: ObservableObject {
         cancellable = publisher
             .sink(receiveCompletion: { completion in
 
-                guard case let .failure(error) = completion else { return }
-                print(error) // TODO: Error Handling
+                guard case .failure = completion else { return }
+                self.state = .failure(.failedToLoadData)
 
             }, receiveValue: { [weak self] response in
 
@@ -75,8 +75,11 @@ class FixturesViewModel: ObservableObject {
     func getFilteredMatches(shouldShowFavoritesOnly: Bool) -> [String: [Match]] {
         var matchesPerDay: [String: [Match]] = [:]
         visibleDaysStringList.forEach { day in
-            matchesPerDay[day] = fullMatchesList[day]?.filter {
+            let matches = fullMatchesList[day]?.filter {
                 (!shouldShowFavoritesOnly || (UserDefaults.favoriteMatchesIdList.contains($0.id)))
+            }
+            if let matches, !matches.isEmpty {
+                matchesPerDay[day] = matches
             }
         }
         return matchesPerDay

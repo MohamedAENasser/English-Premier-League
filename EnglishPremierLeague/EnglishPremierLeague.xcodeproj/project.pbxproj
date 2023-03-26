@@ -21,6 +21,8 @@
 		CF6A5F2129CFB8B500267D85 /* UserDefaults+Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2029CFB8B400267D85 /* UserDefaults+Favorites.swift */; };
 		CF6A5F2629CFD2EB00267D85 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2529CFD2EB00267D85 /* LoadingView.swift */; };
 		CF6A5F2829CFD33600267D85 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2729CFD33600267D85 /* AppState.swift */; };
+		CF6A5F2E29D05E0300267D85 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2D29D05E0300267D85 /* ErrorView.swift */; };
+		CF6A5F3029D05EC700267D85 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2F29D05EC700267D85 /* AppError.swift */; };
 		EF7AFA95B94547A8652DDBDB /* Pods_EnglishPremierLeague.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		CF6A5F2029CFB8B400267D85 /* UserDefaults+Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Favorites.swift"; sourceTree = "<group>"; };
 		CF6A5F2529CFD2EB00267D85 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		CF6A5F2729CFD33600267D85 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		CF6A5F2D29D05E0300267D85 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		CF6A5F2F29D05EC700267D85 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +141,6 @@
 		CF24A63229CA82AF0027BFC0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CF6A5F2729CFD33600267D85 /* AppState.swift */,
 				CF24A63329CA82C70027BFC0 /* FixturesResponse.swift */,
 			);
 			path = Models;
@@ -164,6 +167,8 @@
 		CF6A5F1729CF484600267D85 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CF6A5F2729CFD33600267D85 /* AppState.swift */,
+				CF6A5F2F29D05EC700267D85 /* AppError.swift */,
 				CF6A5F1829CF486A00267D85 /* Utils.swift */,
 			);
 			path = Utils;
@@ -189,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				CF6A5F2529CFD2EB00267D85 /* LoadingView.swift */,
+				CF6A5F2D29D05E0300267D85 /* ErrorView.swift */,
 			);
 			path = StateViews;
 			sourceTree = "<group>";
@@ -308,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF6A5F1929CF486A00267D85 /* Utils.swift in Sources */,
+				CF6A5F3029D05EC700267D85 /* AppError.swift in Sources */,
 				CF6A5F1229CBD2B000267D85 /* FixtureCellViewModel.swift in Sources */,
 				CF24A63429CA82C70027BFC0 /* FixturesResponse.swift in Sources */,
 				CF6A5F2829CFD33600267D85 /* AppState.swift in Sources */,
@@ -318,6 +325,7 @@
 				CF24A63629CA83710027BFC0 /* EnglishLeagueTarget.swift in Sources */,
 				CF24A62129CA50790027BFC0 /* EnglishPremierLeagueApp.swift in Sources */,
 				CF158FD129CB74D900496F65 /* FixturesViewModel.swift in Sources */,
+				CF6A5F2E29D05E0300267D85 /* ErrorView.swift in Sources */,
 				CF158FCF29CB74D100496F65 /* FixturesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
