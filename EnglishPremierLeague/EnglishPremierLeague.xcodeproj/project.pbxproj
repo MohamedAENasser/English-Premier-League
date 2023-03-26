@@ -19,6 +19,8 @@
 		CF6A5F1929CF486A00267D85 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F1829CF486A00267D85 /* Utils.swift */; };
 		CF6A5F1C29CFA0FE00267D85 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F1B29CFA0FE00267D85 /* FavoriteButton.swift */; };
 		CF6A5F2129CFB8B500267D85 /* UserDefaults+Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2029CFB8B400267D85 /* UserDefaults+Favorites.swift */; };
+		CF6A5F2629CFD2EB00267D85 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2529CFD2EB00267D85 /* LoadingView.swift */; };
+		CF6A5F2829CFD33600267D85 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2729CFD33600267D85 /* AppState.swift */; };
 		EF7AFA95B94547A8652DDBDB /* Pods_EnglishPremierLeague.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		CF6A5F1829CF486A00267D85 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		CF6A5F1B29CFA0FE00267D85 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		CF6A5F2029CFB8B400267D85 /* UserDefaults+Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Favorites.swift"; sourceTree = "<group>"; };
+		CF6A5F2529CFD2EB00267D85 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		CF6A5F2729CFD33600267D85 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 				CF6A5F1329CBDE2B00267D85 /* FixturesView */,
 				CF6A5F1429CBDE3500267D85 /* FixtureCell */,
 				CF6A5F1A29CFA0F300267D85 /* FavoriteButton */,
+				CF6A5F2229CFD2BF00267D85 /* StateViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 		CF24A63229CA82AF0027BFC0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CF6A5F2729CFD33600267D85 /* AppState.swift */,
 				CF24A63329CA82C70027BFC0 /* FixturesResponse.swift */,
 			);
 			path = Models;
@@ -177,6 +183,14 @@
 				CF6A5F2029CFB8B400267D85 /* UserDefaults+Favorites.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CF6A5F2229CFD2BF00267D85 /* StateViews */ = {
+			isa = PBXGroup;
+			children = (
+				CF6A5F2529CFD2EB00267D85 /* LoadingView.swift */,
+			);
+			path = StateViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +310,8 @@
 				CF6A5F1929CF486A00267D85 /* Utils.swift in Sources */,
 				CF6A5F1229CBD2B000267D85 /* FixtureCellViewModel.swift in Sources */,
 				CF24A63429CA82C70027BFC0 /* FixturesResponse.swift in Sources */,
+				CF6A5F2829CFD33600267D85 /* AppState.swift in Sources */,
+				CF6A5F2629CFD2EB00267D85 /* LoadingView.swift in Sources */,
 				CF6A5F1C29CFA0FE00267D85 /* FavoriteButton.swift in Sources */,
 				CF6A5F1029CBBFF300267D85 /* FixtureCell.swift in Sources */,
 				CF6A5F2129CFB8B500267D85 /* UserDefaults+Favorites.swift in Sources */,

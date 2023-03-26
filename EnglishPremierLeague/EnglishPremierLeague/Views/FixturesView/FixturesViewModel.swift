@@ -10,11 +10,12 @@ import Moya
 import Combine
 
 class FixturesViewModel: ObservableObject {
-    @Published var visibleDays: [String] = []
+    @Published var state: AppState = .loading
     private var cancellable: AnyCancellable?
 
     // MARK: - Helper properties
-    var fullMatchesList: [String : [Match]] = [:]
+    private var fullMatchesList: [String : [Match]] = [:]
+    private var visibleDaysStringList: [String] = []
     private var fullDaysStringList: [String] = []
     private var fullDaysDateList: [Date] = []
     private var mostRecentDayIndex: Int = 0
@@ -22,6 +23,7 @@ class FixturesViewModel: ObservableObject {
 
     /// Get matches data from the backend.
     func getMatches() {
+        state = .loading
         let provider = MoyaProvider<EnglishLeagueTarget>()
 
         // Setup publisher
@@ -43,6 +45,22 @@ class FixturesViewModel: ObservableObject {
                 self?.setupDatesData(from: response)
 
             })
+
+        // Handle state changes
+        $state.subscribe(Subscribers.Sink(
+            receiveCompletion: { _ in
+            }, receiveValue: { [weak self] state in
+                guard let self else { return }
+                switch state {
+                case .success(let array):
+                    self.visibleDaysStringList = array
+                case .update(let array):
+                    self.visibleDaysStringList.append(contentsOf: array)
+                default:
+                    break
+                }
+            })
+        )
     }
 
     /// Load more matches from previous days.
@@ -50,8 +68,18 @@ class FixturesViewModel: ObservableObject {
         if mostRecentDayIndex == 0 { return }
         let maxIndex = mostRecentDayIndex
         mostRecentDayIndex = max(mostRecentDayIndex - loadDaysCount, 0)
-        visibleDays.append(contentsOf: fullDaysStringList[mostRecentDayIndex..<maxIndex])
+        state = .update(Array(fullDaysStringList[mostRecentDayIndex..<maxIndex]))
         loadDaysCount = min(loadDaysCount + 1, 7) // increase days loaded every time to facilitate the user loading more days will lower effort, with maximum of week (7 days) per time
+    }
+
+    func getFilteredMatches(shouldShowFavoritesOnly: Bool) -> [String: [Match]] {
+        var matchesPerDay: [String: [Match]] = [:]
+        visibleDaysStringList.forEach { day in
+            matchesPerDay[day] = fullMatchesList[day]?.filter {
+                (!shouldShowFavoritesOnly || (UserDefaults.favoriteMatchesIdList.contains($0.id)))
+            }
+        }
+        return matchesPerDay
     }
 
     private func setupDatesData(from matchesList: [Match]) {
@@ -74,6 +102,6 @@ class FixturesViewModel: ObservableObject {
 
     /// Setup initial visible matches to be the most recent for today or the nearest upcoming day.
     private func setupInitialVisibleDays() {
-        visibleDays = Array(fullDaysStringList[mostRecentDayIndex..<fullDaysStringList.count])
+        state = .success(Array(fullDaysStringList[mostRecentDayIndex..<fullDaysStringList.count]))
     }
 }

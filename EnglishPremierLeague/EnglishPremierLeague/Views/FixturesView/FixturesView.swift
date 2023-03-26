@@ -13,35 +13,35 @@ struct FixturesView: View {
     @State private var shouldShowFavoritesOnly = false
 
     var filteredMatches: [String: [Match]] {
-        var matchesPerDay: [String: [Match]] = [:]
-        viewModel.visibleDays.forEach { day in
-            matchesPerDay[day] = viewModel.fullMatchesList[day]?.filter {
-                (!shouldShowFavoritesOnly || (UserDefaults.favoriteMatchesIdList.contains($0.id)))
-            }
-        }
-        return matchesPerDay
+        viewModel.getFilteredMatches(shouldShowFavoritesOnly: shouldShowFavoritesOnly)
     }
 
     var body: some View {
-        NavigationView {
-            List() {
-                showFavoritesToggleView
-                ForEach(Array(filteredMatches.keys).sorted(by: <), id: \.self) { day in
-                    if let matches = filteredMatches[day], !matches.isEmpty {
-                        daySectionView(from: day, matches: matches)
+        ZStack {
+            NavigationView {
+                List() {
+                    showFavoritesToggleView
+                    ForEach(Array(filteredMatches.keys).sorted(by: <), id: \.self) { day in
+                        if let matches = filteredMatches[day], !matches.isEmpty {
+                            daySectionView(from: day, matches: matches)
+                        }
                     }
                 }
+                .refreshable {
+                    guard !shouldShowFavoritesOnly else { return }
+                    viewModel.loadMoreMatches()
+                }
+                .background(Color.purple)
+                .scrollContentBackground(.hidden)
+                .navigationTitle("Premier league")
+                .listStyle(.insetGrouped)
             }
-            .refreshable {
-                viewModel.loadMoreMatches()
+            .onAppear {
+                viewModel.getMatches()
             }
-            .background(Color.purple)
-            .scrollContentBackground(.hidden)
-            .navigationTitle("Premier league")
-            .listStyle(.insetGrouped)
-        }
-        .onAppear {
-            viewModel.getMatches()
+            if viewModel.state == .loading {
+                LoadingView()
+            }
         }
     }
 
