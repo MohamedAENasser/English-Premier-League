@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct EnglishPremierLeagueApp: App {
+    @StateObject private var viewModel = FixturesViewModel()
+
     var body: some Scene {
         WindowGroup {
             FixturesView()
+                .environmentObject(viewModel)
         }
     }
 }

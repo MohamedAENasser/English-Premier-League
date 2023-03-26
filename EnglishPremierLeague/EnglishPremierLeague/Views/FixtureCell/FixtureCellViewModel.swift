@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Moya
+import Combine
 
 class FixtureCellViewModel: ObservableObject {
     private var match: Match?
@@ -14,8 +15,9 @@ class FixtureCellViewModel: ObservableObject {
     @Published var awayTeamScore: String = ""
     @Published var homeTeamScoreColor: Color = .black
     @Published var awayTeamScoreColor: Color = .black
-    @Published var status: MatchSatus = .finished
+    @Published var status: MatchStatus = .finished
     @Published var matchTime: String = ""
+    @Published var isFavorite: Bool = false
 
     func setup(with match: Match) {
         self.match = match
@@ -27,10 +29,21 @@ class FixtureCellViewModel: ObservableObject {
             awayTeamScore = "\(awayTeamScoreValue)"
         }
 
-        status = MatchSatus(rawValue: match.status) ?? .finished
+        status = MatchStatus(rawValue: match.status) ?? .finished
 
         setupMatchTime()
         setupScoresColors()
+        isFavorite = UserDefaults.favoriteMatchesIdList.contains(match.id)
+        $isFavorite.subscribe(Subscribers.Sink(receiveCompletion: { _ in }, receiveValue: toggleFavorites(isFavorite:)))
+    }
+
+    private func toggleFavorites(isFavorite: Bool) {
+        let matchId = match?.id ?? 0
+        if isFavorite, !UserDefaults.favoriteMatchesIdList.contains(matchId) {
+            UserDefaults.favoriteMatchesIdList.append(matchId)
+        } else if !isFavorite, let index = UserDefaults.favoriteMatchesIdList.firstIndex(where: { $0 == matchId }) {
+            UserDefaults.favoriteMatchesIdList.remove(at: index)
+        }
     }
 
     private func setupMatchTime() {

@@ -55,16 +55,13 @@ class FixturesViewModel: ObservableObject {
     }
 
     private func setupDatesData(from matchesList: [Match]) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = String.fixturesDateFormate()
-
         fullMatchesList = Dictionary(grouping: matchesList) { (match) -> String in
-            dateFormatter.string(from: match.matchDate)
+            Utils.fixturesDateFormatter.string(from: match.matchDate)
         }
 
         // Setup Helper properties that will be used later for filtration and load
         fullDaysStringList = Array(fullMatchesList.keys).sorted(by: <)
-        fullDaysDateList = fullDaysStringList.map { dateFormatter.date(from: $0) ?? Date() }
+        fullDaysDateList = fullDaysStringList.map { Utils.fixturesDateFormatter.date(from: $0) ?? Date() }
 
         setupMostRecentMatchesDay()
         setupInitialVisibleDays()
@@ -72,8 +69,6 @@ class FixturesViewModel: ObservableObject {
 
     /// Getting the matches that will be played today or tomorrow, if nothing found then will pickup the most recent upcoming day that has matches.
     private func setupMostRecentMatchesDay() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = String.fixturesDateFormate()
         mostRecentDayIndex = fullDaysDateList.firstIndex(where: { $0 >= Date() }) ?? 0
     }
 

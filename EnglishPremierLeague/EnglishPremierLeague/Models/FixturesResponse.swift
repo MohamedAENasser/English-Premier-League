@@ -20,10 +20,14 @@ struct Match: Codable, Identifiable {
     let score: Score?
     let status: String
     let utcDate: String
+    var isFavorite: Bool?
     var matchDate: Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         return dateFormatter.date(from: utcDate) ?? Date()
+    }
+    var matchDateString: String {
+        return Utils.fixturesDateFormatter.string(from: matchDate)
     }
 
     enum CodingKeys: String, CodingKey {
@@ -34,6 +38,7 @@ struct Match: Codable, Identifiable {
         case score
         case status
         case utcDate
+        case isFavorite
     }
 }
 
@@ -55,7 +60,7 @@ struct TimeModel: Codable {
     let awayTeam, homeTeam: Int?
 }
 
-enum MatchSatus: String {
+enum MatchStatus: String {
     case scheduled = "SCHEDULED"
     case finished = "FINISHED"
     case postponed = "POSTPONED"

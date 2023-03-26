@@ -9,13 +9,25 @@ import SwiftUI
 import Moya
 
 struct FixturesView: View {
-    @StateObject private var viewModel = FixturesViewModel()
+    @EnvironmentObject private var viewModel: FixturesViewModel
+    @State private var shouldShowFavoritesOnly = false
+
+    var filteredMatches: [String: [Match]] {
+        var matchesPerDay: [String: [Match]] = [:]
+        viewModel.visibleDays.forEach { day in
+            matchesPerDay[day] = viewModel.fullMatchesList[day]?.filter {
+                (!shouldShowFavoritesOnly || (UserDefaults.favoriteMatchesIdList.contains($0.id)))
+            }
+        }
+        return matchesPerDay
+    }
 
     var body: some View {
         NavigationView {
             List() {
-                ForEach(Array(viewModel.visibleDays).sorted(by: <), id: \.self) { day in
-                    if let matches = viewModel.fullMatchesList[day], !matches.isEmpty {
+                showFavoritesToggleView
+                ForEach(Array(filteredMatches.keys).sorted(by: <), id: \.self) { day in
+                    if let matches = filteredMatches[day], !matches.isEmpty {
                         daySectionView(from: day, matches: matches)
                     }
                 }
@@ -30,8 +42,14 @@ struct FixturesView: View {
         }
         .onAppear {
             viewModel.getMatches()
-
         }
+    }
+
+    var showFavoritesToggleView: some View {
+        Toggle(isOn: $shouldShowFavoritesOnly) {
+            Text(shouldShowFavoritesOnly ? "Show all matches" : "Show favorites only")
+        }
+        .tint(.purple)
     }
 
     func daySectionView(from day: String, matches: [Match]) -> some View {
@@ -46,5 +64,6 @@ struct FixturesView: View {
 struct FixturesView_Previews: PreviewProvider {
     static var previews: some View {
         FixturesView()
+            .environmentObject(FixturesViewModel())
     }
 }

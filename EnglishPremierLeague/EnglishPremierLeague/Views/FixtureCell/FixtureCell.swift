@@ -10,9 +10,8 @@ import Foundation
 import SwiftUI
 
 struct FixtureCell: View {
-
-    let match: Match
     @StateObject private var viewModel = FixtureCellViewModel()
+    let match: Match
 
     // UI Properties
     let teamNameFont = Font.body
@@ -24,15 +23,15 @@ struct FixtureCell: View {
                 homeTeamView
                 awayTeamView
             }
-            VStack {
-                timeDetailsView
-            }
+            timeDetailsView
         }
         .contextMenu {
             Button {
-                // TODO: Add to favorites logic
+                viewModel.isFavorite.toggle()
             } label: {
-                Label("Add to favorites", systemImage: "star")
+                let isSet = UserDefaults.favoriteMatchesIdList.contains(match.id)
+                let labelText = isSet ? "Remove from favorites" : "Add to favorites"
+                Label(labelText, systemImage: isSet ? "star.fill" : "star")
             }
         }
         .onAppear {
@@ -73,9 +72,10 @@ struct FixtureCell: View {
     var timeDetailsView: some View {
         HStack {
             Divider()
-                .padding([.top, .bottom])
 
             VStack {
+                FavoriteButton(isSet: $viewModel.isFavorite)
+
                 if viewModel.status == .finished {
                     Text("FT")
                     Text(viewModel.matchTime)
