@@ -52,26 +52,40 @@ struct FixturesView: View {
     }
 
     var matchesListView: some View {
-        List() {
+        VStack {
             showFavoritesToggleView
-            ForEach(Array(filteredMatches.keys).sorted(by: <), id: \.self) { day in
-                daySectionView(from: day, matches: filteredMatches[day] ?? [])
+            List() {
+                ForEach(Array(filteredMatches.keys).sorted(by: <), id: \.self) { day in
+                    daySectionView(from: day, matches: filteredMatches[day] ?? [])
+                }
             }
-        }
-        .refreshable {
-            guard !shouldShowFavoritesOnly else { return }
-            viewModel.loadMoreMatches()
+            .refreshable {
+                guard !shouldShowFavoritesOnly else { return }
+                viewModel.loadMoreMatches()
+            }
+            .scrollContentBackground(.hidden)
+            .listStyle(.insetGrouped)
         }
         .background(Color.purple)
-        .scrollContentBackground(.hidden)
-        .listStyle(.insetGrouped)
     }
 
     var showFavoritesToggleView: some View {
-        Toggle(isOn: $shouldShowFavoritesOnly) {
-            Text(shouldShowFavoritesOnly ? "Show all matches" : "Show favorites only")
+        HStack {
+            Spacer()
+
+            HStack {
+                Toggle(isOn: $shouldShowFavoritesOnly) {
+                    Text(shouldShowFavoritesOnly ? "Show all matches" : "Show favorites only")
+                }
+                .tint(.purple)
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+            }
+            .background(Color.white)
+            .clipShape(Capsule())
+            .padding([.leading, .trailing])
+
+            Spacer()
         }
-        .tint(.purple)
     }
 
     func daySectionView(from day: String, matches: [Match]) -> some View {
