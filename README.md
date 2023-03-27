@@ -30,10 +30,9 @@ Steps followed while implementing the application:
 	- Used Moya's sample data to simulate mock data needed for the unit tests and added full tests to make sure that the data is properly handled from fetching to presentation.
 
 *Note:*
-
-To run the application properly and get data, the API_KEY value in `EnglishLeagueTarget` file should be updated to a valid one.
-
-`there are many ways to keep it secure either locally or remotely but safe ways will need back end handling thats why its skipped for now.`
+- run `pod install`
+- To run the application properly and get data, the `API_KEY` value in `EnglishLeagueTarget` file should be updated to a valid one.
+	- `there are many ways to keep it secure either locally or remotely but safe ways will need back end handling thats why its skipped for now.`
 
 *Application walkthrough (light/dark) modes:*
 
