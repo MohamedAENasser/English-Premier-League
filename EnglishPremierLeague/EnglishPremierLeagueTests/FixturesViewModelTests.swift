@@ -99,4 +99,34 @@ final class FixturesViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.visibleDaysStringList.count, 5)
         XCTAssertEqual(viewModel.loadDaysCount, 3) // The next time user will load, 3 days will be loaded
     }
+
+    func testGetFilteredMatches() async {
+        // Given
+        viewModel.fixturesService.provider = MoyaProvider<EnglishLeagueTarget>(stubClosure: MoyaProvider.immediatelyStub)
+        /// Matches list:
+        /// - 3 days before -> 1 match available
+        /// - 2 days before -> 1 match available
+        /// - yesterday -> 1 match available
+        /// - today -> 1 match available
+        /// - tomorrow -> 1 match available
+        /// - after 3 days -> 1 match available
+        /// - after 4 days -> 1 match available
+        Utils.addNewMatchesArrayToSampleData(offsets: [-3, -2, -1, 0, 1, 3, 4])
+        UserDefaults.favoriteMatchesIdList = [
+            Utils.sampleData.matches[0].id,
+            Utils.sampleData.matches[1].id
+        ]
+
+        // When
+        await viewModel.getMatches()
+
+        // Then
+        // Check filtered matches on normal mode - all matches including non favorites -
+        let allFilteredList = viewModel.getFilteredMatches(shouldShowFavoritesOnly: false)
+        XCTAssertEqual(allFilteredList.count, 4) // Number of all available matches existing on 4 days, the matches of today and the upcoming days.
+
+        // Check filtered matches on favorites mode
+        let favoritesFilteredList = viewModel.getFilteredMatches(shouldShowFavoritesOnly: true)
+        XCTAssertEqual(favoritesFilteredList.count, 2) // Number of favorites matches existing on 2 days.
+    }
 }

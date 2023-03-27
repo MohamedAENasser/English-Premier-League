@@ -44,8 +44,9 @@ class FixturesViewModel: ObservableObject {
     }
 
     func getFilteredMatches(shouldShowFavoritesOnly: Bool) -> [String: [Match]] {
+        let checkingList = shouldShowFavoritesOnly ? fullDaysStringList : visibleDaysStringList // filter on the full list in case of favorites mode, and visible list in case of normal mode.
         var matchesPerDay: [String: [Match]] = [:]
-        visibleDaysStringList.forEach { day in
+        checkingList.forEach { day in
             let matches = fullMatchesList[day]?.filter {
                 (!shouldShowFavoritesOnly || (UserDefaults.favoriteMatchesIdList.contains($0.id)))
             }
