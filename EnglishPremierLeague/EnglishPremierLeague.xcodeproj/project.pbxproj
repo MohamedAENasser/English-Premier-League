@@ -29,6 +29,7 @@
 		CF6A5F6329D0F6F800267D85 /* FixturesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F6229D0F6F800267D85 /* FixturesViewModelTests.swift */; };
 		CF6A5F6D29D1108400267D85 /* Utils+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F6C29D1108400267D85 /* Utils+SampleData.swift */; };
 		CF6A5F6F29D114BC00267D85 /* Date+DaysDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F6E29D114BC00267D85 /* Date+DaysDifference.swift */; };
+		CF6A5F7129D1214600267D85 /* FixtureCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F7029D1214600267D85 /* FixtureCellViewModelTests.swift */; };
 		EF7AFA95B94547A8652DDBDB /* Pods_EnglishPremierLeague.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		CF6A5F6229D0F6F800267D85 /* FixturesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesViewModelTests.swift; sourceTree = "<group>"; };
 		CF6A5F6C29D1108400267D85 /* Utils+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utils+SampleData.swift"; sourceTree = "<group>"; };
 		CF6A5F6E29D114BC00267D85 /* Date+DaysDifference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DaysDifference.swift"; sourceTree = "<group>"; };
+		CF6A5F7029D1214600267D85 /* FixtureCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureCellViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 			children = (
 				CF6A5F6B29D1107300267D85 /* Extensions */,
 				CF6A5F6229D0F6F800267D85 /* FixturesViewModelTests.swift */,
+				CF6A5F7029D1214600267D85 /* FixtureCellViewModelTests.swift */,
 			);
 			path = EnglishPremierLeagueTests;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6A5F7129D1214600267D85 /* FixtureCellViewModelTests.swift in Sources */,
 				CF6A5F6329D0F6F800267D85 /* FixturesViewModelTests.swift in Sources */,
 				CF6A5F6D29D1108400267D85 /* Utils+SampleData.swift in Sources */,
 			);

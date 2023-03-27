@@ -10,19 +10,19 @@ import Foundation
 
 extension Utils {
 
-    static func addNewMatchToSampleData(dayOffset: Int, homeTeamScore: Int? = nil, awayTeamScore: Int? = nil, winner: MatchWinner? = nil) {
-        sampleData.matches.append(
-            Match(
-                id: UUID().hashValue,
-                awayTeam: Team(id: UUID().hashValue, name: "Away Team Sample"),
-                homeTeam: Team(id: UUID().hashValue, name: "Home Team Sample"),
-                score: Score(
-                    fullTime: TimeModel(awayTeam: awayTeamScore, homeTeam: homeTeamScore),
-                    winner: winner?.rawValue),
-                status: winner == nil ? MatchStatus.scheduled.rawValue : MatchStatus.finished.rawValue,
-                utcDate: stringFromDate(offsetBy: dayOffset)
-            )
+    @discardableResult static func addNewMatchToSampleData(dayOffset: Int, homeTeamScore: Int? = nil, awayTeamScore: Int? = nil, winner: MatchWinner? = nil) -> Match {
+        let match = Match(
+            id: UUID().hashValue,
+            awayTeam: Team(id: UUID().hashValue, name: "Away Team Sample"),
+            homeTeam: Team(id: UUID().hashValue, name: "Home Team Sample"),
+            score: Score(
+                fullTime: TimeModel(awayTeam: awayTeamScore, homeTeam: homeTeamScore),
+                winner: winner?.rawValue),
+            status: winner == nil ? MatchStatus.scheduled.rawValue : MatchStatus.finished.rawValue,
+            utcDate: stringFromDate(offsetBy: dayOffset)
         )
+        sampleData.matches.append(match)
+        return match
     }
 
     static func addNewMatchesArrayToSampleData(offsets: [Int], homeTeamScore: Int? = nil, awayTeamScore: Int? = nil, winner: MatchWinner? = nil) {
