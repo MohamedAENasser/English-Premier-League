@@ -31,6 +31,7 @@
 		CF6A5F6F29D114BC00267D85 /* Date+DaysDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F6E29D114BC00267D85 /* Date+DaysDifference.swift */; };
 		CF6A5F7129D1214600267D85 /* FixtureCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F7029D1214600267D85 /* FixtureCellViewModelTests.swift */; };
 		CF6A5F7829D13E7800267D85 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F7729D13E7800267D85 /* MainMenuView.swift */; };
+		CF6A5F7A29D1CA3D00267D85 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F7929D1CA3D00267D85 /* SplashView.swift */; };
 		EF7AFA95B94547A8652DDBDB /* Pods_EnglishPremierLeague.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		CF6A5F6E29D114BC00267D85 /* Date+DaysDifference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DaysDifference.swift"; sourceTree = "<group>"; };
 		CF6A5F7029D1214600267D85 /* FixtureCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureCellViewModelTests.swift; sourceTree = "<group>"; };
 		CF6A5F7729D13E7800267D85 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		CF6A5F7929D1CA3D00267D85 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				CF6A5F7729D13E7800267D85 /* MainMenuView.swift */,
+				CF6A5F7929D1CA3D00267D85 /* SplashView.swift */,
 				CF6A5F2529CFD2EB00267D85 /* LoadingView.swift */,
 				CF6A5F2D29D05E0300267D85 /* ErrorView.swift */,
 				CF6A5F3129D0874700267D85 /* EmptyStateView.swift */,
@@ -469,6 +472,7 @@
 				CF6A5F1029CBBFF300267D85 /* FixtureCell.swift in Sources */,
 				CF6A5F2129CFB8B500267D85 /* UserDefaults+Favorites.swift in Sources */,
 				CF24A63629CA83710027BFC0 /* EnglishLeagueTarget.swift in Sources */,
+				CF6A5F7A29D1CA3D00267D85 /* SplashView.swift in Sources */,
 				CF24A62129CA50790027BFC0 /* EnglishPremierLeagueApp.swift in Sources */,
 				CF158FD129CB74D900496F65 /* FixturesViewModel.swift in Sources */,
 				CF6A5F3229D0874700267D85 /* EmptyStateView.swift in Sources */,

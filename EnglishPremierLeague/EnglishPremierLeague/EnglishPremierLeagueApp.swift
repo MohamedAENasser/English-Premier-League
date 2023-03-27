@@ -11,7 +11,7 @@ import SwiftUI
 struct EnglishPremierLeagueApp: App {
     var body: some Scene {
         WindowGroup {
-            MainMenuView()
+            SplashView()
         }
     }
 }
