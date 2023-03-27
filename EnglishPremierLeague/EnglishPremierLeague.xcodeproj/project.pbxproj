@@ -30,6 +30,7 @@
 		CF6A5F6D29D1108400267D85 /* Utils+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F6C29D1108400267D85 /* Utils+SampleData.swift */; };
 		CF6A5F6F29D114BC00267D85 /* Date+DaysDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F6E29D114BC00267D85 /* Date+DaysDifference.swift */; };
 		CF6A5F7129D1214600267D85 /* FixtureCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F7029D1214600267D85 /* FixtureCellViewModelTests.swift */; };
+		CF6A5F7829D13E7800267D85 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F7729D13E7800267D85 /* MainMenuView.swift */; };
 		EF7AFA95B94547A8652DDBDB /* Pods_EnglishPremierLeague.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		CF6A5F6C29D1108400267D85 /* Utils+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utils+SampleData.swift"; sourceTree = "<group>"; };
 		CF6A5F6E29D114BC00267D85 /* Date+DaysDifference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DaysDifference.swift"; sourceTree = "<group>"; };
 		CF6A5F7029D1214600267D85 /* FixtureCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureCellViewModelTests.swift; sourceTree = "<group>"; };
+		CF6A5F7729D13E7800267D85 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 		CF6A5F2229CFD2BF00267D85 /* StateViews */ = {
 			isa = PBXGroup;
 			children = (
+				CF6A5F7729D13E7800267D85 /* MainMenuView.swift */,
 				CF6A5F2529CFD2EB00267D85 /* LoadingView.swift */,
 				CF6A5F2D29D05E0300267D85 /* ErrorView.swift */,
 				CF6A5F3129D0874700267D85 /* EmptyStateView.swift */,
@@ -453,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6A5F7829D13E7800267D85 /* MainMenuView.swift in Sources */,
 				CF6A5F1929CF486A00267D85 /* Utils.swift in Sources */,
 				CF6A5F3029D05EC700267D85 /* AppError.swift in Sources */,
 				CF6A5F1229CBD2B000267D85 /* FixtureCellViewModel.swift in Sources */,

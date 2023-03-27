@@ -52,6 +52,7 @@ struct FixturesView: View {
                 await viewModel.getMatches()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 
     var matchesListView: some View {
