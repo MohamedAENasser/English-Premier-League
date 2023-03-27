@@ -46,7 +46,11 @@ final class FixturesViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.mostRecentDayIndex, 1)
         // Check the visible matches are only the ones will be played today and the upcoming ones.
         XCTAssertEqual(viewModel.visibleDaysStringList.count, 3)
-        XCTAssertEqual(viewModel.state, .success(viewModel.visibleDaysStringList))
+        if case let .success(matchesList) = viewModel.state {
+            XCTAssertEqual(matchesList, viewModel.visibleDaysStringList)
+        } else {
+            XCTFail("State wasn't set properly")
+        }
         // Check the filtered matches is properly handled for all matches case
         XCTAssertEqual(viewModel.getFilteredMatches(shouldShowFavoritesOnly: false).count, 3)
     }
@@ -69,7 +73,11 @@ final class FixturesViewModelTests: XCTestCase {
         // Check the visible matches are only the ones will be played today and the upcoming ones.
         XCTAssertEqual(viewModel.mostRecentDayIndex, 3)
         XCTAssertEqual(viewModel.visibleDaysStringList.count, 2)
-        XCTAssertEqual(viewModel.state, .success(viewModel.visibleDaysStringList))
+        if case let .success(matchesList) = viewModel.state {
+            XCTAssertEqual(matchesList, viewModel.visibleDaysStringList)
+        } else {
+            XCTFail("State wasn't set properly, should be `.success` instead of \(viewModel.state)")
+        }
         XCTAssertEqual(viewModel.loadDaysCount, 1)
 
         // When
@@ -80,6 +88,11 @@ final class FixturesViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.mostRecentDayIndex, 2)
         XCTAssertEqual(viewModel.visibleDaysStringList.count, 3)
         XCTAssertEqual(viewModel.loadDaysCount, 2) // The next time user will load, 2 days will be loaded
+        if case let .update(updatedList) = viewModel.state {
+            XCTAssertEqual(updatedList.count, 1) // 1 day loaded
+        } else {
+            XCTFail("State wasn't set properly, should be `.updated` instead of \(viewModel.state)")
+        }
 
         // When
         viewModel.loadMoreMatches()
@@ -89,6 +102,11 @@ final class FixturesViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.mostRecentDayIndex, 0)
         XCTAssertEqual(viewModel.visibleDaysStringList.count, 5)
         XCTAssertEqual(viewModel.loadDaysCount, 3) // The next time user will load, 3 days will be loaded
+        if case let .update(updatedList) = viewModel.state {
+            XCTAssertEqual(updatedList.count, 2) // 1 day loaded
+        } else {
+            XCTFail("State wasn't set properly, should be `.updated` instead of \(viewModel.state)")
+        }
 
         // When
         viewModel.loadMoreMatches()
@@ -97,7 +115,7 @@ final class FixturesViewModelTests: XCTestCase {
         // Nothing will change as we already loaded the full available list
         XCTAssertEqual(viewModel.mostRecentDayIndex, 0)
         XCTAssertEqual(viewModel.visibleDaysStringList.count, 5)
-        XCTAssertEqual(viewModel.loadDaysCount, 3) // The next time user will load, 3 days will be loaded
+        XCTAssertEqual(viewModel.loadDaysCount, 3) // the next time user will load, 3 days will be loaded as there was no data loaded
     }
 
     func testGetFilteredMatches() async {
@@ -121,6 +139,11 @@ final class FixturesViewModelTests: XCTestCase {
         await viewModel.getMatches()
 
         // Then
+        if case let .success(matchesList) = viewModel.state {
+            XCTAssertEqual(matchesList, viewModel.visibleDaysStringList)
+        } else {
+            XCTFail("State wasn't set properly")
+        }
         // Check filtered matches on normal mode - all matches including non favorites -
         let allFilteredList = viewModel.getFilteredMatches(shouldShowFavoritesOnly: false)
         XCTAssertEqual(allFilteredList.count, 4) // Number of all available matches existing on 4 days, the matches of today and the upcoming days.
