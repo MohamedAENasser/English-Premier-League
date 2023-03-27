@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoadingView: View {
     var body: some View {
+        Color.backgroundColor.ignoresSafeArea(.all)
+
         ProgressView()
             .progressViewStyle(.automatic)
             .scaleEffect(4)

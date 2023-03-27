@@ -34,9 +34,9 @@ final class FixtureCellViewModelTests: XCTestCase {
 
         // Then
         XCTAssertEqual(viewModel.homeTeamScore, "\(homeTeamScore)")
-        XCTAssertEqual(viewModel.homeTeamScoreColor, .green)
+        XCTAssertEqual(viewModel.homeTeamScoreColor, .winnerColor)
         XCTAssertEqual(viewModel.awayTeamScore, "\(awayTeamScore)")
-        XCTAssertEqual(viewModel.awayTeamScoreColor, .red)
+        XCTAssertEqual(viewModel.awayTeamScoreColor, .loserColor)
         XCTAssertEqual(viewModel.status, .finished)
     }
 
@@ -51,9 +51,9 @@ final class FixtureCellViewModelTests: XCTestCase {
 
         // Then
         XCTAssertEqual(viewModel.homeTeamScore, "\(homeTeamScore)")
-        XCTAssertEqual(viewModel.homeTeamScoreColor, .red)
+        XCTAssertEqual(viewModel.homeTeamScoreColor, .loserColor)
         XCTAssertEqual(viewModel.awayTeamScore, "\(awayTeamScore)")
-        XCTAssertEqual(viewModel.awayTeamScoreColor, .green)
+        XCTAssertEqual(viewModel.awayTeamScoreColor, .winnerColor)
         XCTAssertEqual(viewModel.status, .finished)
     }
 }

@@ -12,12 +12,13 @@ class FixtureCellViewModel: ObservableObject {
     private var match: Match?
     @Published var homeTeamScore: String = ""
     @Published var awayTeamScore: String = ""
-    @Published var homeTeamScoreColor: Color = .black
-    @Published var awayTeamScoreColor: Color = .black
+    @Published var homeTeamScoreColor: Color = .drawColor
+    @Published var awayTeamScoreColor: Color = .drawColor
     @Published var status: MatchStatus = .finished
     @Published var matchTime: String = ""
     @Published var isFavorite: Bool = false
 
+    /// Setup teams details for the match.
     func setup(with match: Match) {
         self.match = match
         if let homeTeamScoreValue = match.score?.fullTime.homeTeam {
@@ -36,6 +37,7 @@ class FixtureCellViewModel: ObservableObject {
         $isFavorite.subscribe(Subscribers.Sink(receiveCompletion: { _ in }, receiveValue: toggleFavorites(isFavorite:)))
     }
 
+    /// Update saved data for favorite matches when their selection is changed.
     private func toggleFavorites(isFavorite: Bool) {
         let matchId = match?.id ?? 0
         if isFavorite, !UserDefaults.favoriteMatchesIdList.contains(matchId) {
@@ -45,6 +47,7 @@ class FixtureCellViewModel: ObservableObject {
         }
     }
 
+    /// Setup the proper format of match time to be in hours and minutes, `hh:mm` format.
     private func setupMatchTime() {
         guard let date = match?.matchDate else { return }
         let dateFormatter = DateFormatter()
@@ -52,9 +55,10 @@ class FixtureCellViewModel: ObservableObject {
         matchTime = dateFormatter.string(from: date)
     }
 
+    /// Setup the proper colors for each team.
     private func setupScoresColors() {
         guard let winner = match?.score?.winner, winner != MatchWinner.draw.rawValue else { return }
-        homeTeamScoreColor = match?.score?.winner == MatchWinner.homeTeam.rawValue ? Color.green : Color.red
-        awayTeamScoreColor = match?.score?.winner == MatchWinner.awayTeam.rawValue ? Color.green : Color.red
+        homeTeamScoreColor = match?.score?.winner == MatchWinner.homeTeam.rawValue ? .winnerColor : .loserColor
+        awayTeamScoreColor = match?.score?.winner == MatchWinner.awayTeam.rawValue ? .winnerColor : .loserColor
     }
 }

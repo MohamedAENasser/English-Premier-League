@@ -13,6 +13,7 @@ struct MainMenuView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                Color.backgroundColor.ignoresSafeArea(.all)
                 NavigationLink {
                     FixturesView()
                         .environmentObject(viewModel)
@@ -20,15 +21,15 @@ struct MainMenuView: View {
                 } label: {
                     HStack {
                         Text("Go to matches list!")
-                        .tint(.white)
-                        .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+                            .font(.title)
+                        .tint(.black)
+                        .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
                     }
-                    .background(.purple)
+                    .background(Color.darkElementsBackgroundColor)
                     .clipShape(Capsule())
                     .padding([.leading, .trailing])
                 }
             }
-
         }
     }
 }

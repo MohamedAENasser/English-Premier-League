@@ -43,6 +43,7 @@ class FixturesViewModel: ObservableObject {
         loadDaysCount = min(loadDaysCount + 1, 7) // increase days loaded every time to facilitate the user loading more days will lower effort, with maximum of week (7 days) per time
     }
 
+    // Getting the match list that should be displayed based on user selection whether to show only favorites or all matches.
     func getFilteredMatches(shouldShowFavoritesOnly: Bool) -> [String: [Match]] {
         let checkingList = shouldShowFavoritesOnly ? fullDaysStringList : visibleDaysStringList // filter on the full list in case of favorites mode, and visible list in case of normal mode.
         var matchesPerDay: [String: [Match]] = [:]
@@ -57,6 +58,7 @@ class FixturesViewModel: ObservableObject {
         return matchesPerDay
     }
 
+    /// Updates `visibleDaysStringList` when the status is changes to `.success` or `.update`.
     private func subscribeForStateChanges() {
         // Handle state changes
         $state.subscribe(Subscribers.Sink(
@@ -75,6 +77,8 @@ class FixturesViewModel: ObservableObject {
         )
     }
 
+
+    /// Setup fetched dates to be able to group matches per day and display them accordingly.
     private func setupDatesData(from matchesList: [Match]) {
         fullMatchesList = Dictionary(grouping: matchesList) { (match) -> String in
             Utils.fixturesDateFormatter.string(from: match.matchDate)

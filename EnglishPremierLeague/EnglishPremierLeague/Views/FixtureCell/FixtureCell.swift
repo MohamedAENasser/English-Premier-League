@@ -79,7 +79,7 @@ struct FixtureCell: View {
                     Text(viewModel.matchTime)
                 } else if viewModel.status == .postponed {
                     Text("PPND")
-                        .foregroundColor(Color.orange)
+                        .foregroundColor(.postponedColor)
                 } else {
                     Text(viewModel.matchTime)
                 }

@@ -17,7 +17,7 @@ struct FavoriteButton: View {
             let labelText = isSet ? "Remove from favorites" : "Add to favorites"
             Label(labelText, systemImage: isSet ? "star.fill" : "star")
                 .labelStyle(.iconOnly)
-                .foregroundColor(isSet ? .yellow : .gray)
+                .foregroundColor(isSet ? .favoritesColor : .nonSelectedColor)
         }
         .buttonStyle(.borderless)
     }

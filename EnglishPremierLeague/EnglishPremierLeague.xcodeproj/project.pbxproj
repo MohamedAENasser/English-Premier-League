@@ -32,6 +32,8 @@
 		CF6A5F7129D1214600267D85 /* FixtureCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F7029D1214600267D85 /* FixtureCellViewModelTests.swift */; };
 		CF6A5F7829D13E7800267D85 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F7729D13E7800267D85 /* MainMenuView.swift */; };
 		CF6A5F7A29D1CA3D00267D85 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F7929D1CA3D00267D85 /* SplashView.swift */; };
+		CF6A5F7C29D1F0FC00267D85 /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F7B29D1F0FC00267D85 /* Color+Custom.swift */; };
+		CF6A5F7E29D1FF0600267D85 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF6A5F7D29D1FF0500267D85 /* Colors.xcassets */; };
 		EF7AFA95B94547A8652DDBDB /* Pods_EnglishPremierLeague.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,8 @@
 		CF6A5F7029D1214600267D85 /* FixtureCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureCellViewModelTests.swift; sourceTree = "<group>"; };
 		CF6A5F7729D13E7800267D85 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		CF6A5F7929D1CA3D00267D85 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		CF6A5F7B29D1F0FC00267D85 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
+		CF6A5F7D29D1FF0500267D85 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 				CF24A62E29CA75C70027BFC0 /* Network */,
 				CF24A62029CA50790027BFC0 /* EnglishPremierLeagueApp.swift */,
 				CF24A62429CA507B0027BFC0 /* Assets.xcassets */,
+				CF6A5F7D29D1FF0500267D85 /* Colors.xcassets */,
 				CF24A62629CA507B0027BFC0 /* Preview Content */,
 			);
 			path = EnglishPremierLeague;
@@ -232,6 +237,7 @@
 			children = (
 				CF6A5F2029CFB8B400267D85 /* UserDefaults+Favorites.swift */,
 				CF6A5F6E29D114BC00267D85 /* Date+DaysDifference.swift */,
+				CF6A5F7B29D1F0FC00267D85 /* Color+Custom.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6A5F7E29D1FF0600267D85 /* Colors.xcassets in Resources */,
 				CF24A62829CA507B0027BFC0 /* Preview Assets.xcassets in Resources */,
 				CF24A62529CA507B0027BFC0 /* Assets.xcassets in Resources */,
 			);
@@ -463,6 +470,7 @@
 				CF6A5F1929CF486A00267D85 /* Utils.swift in Sources */,
 				CF6A5F3029D05EC700267D85 /* AppError.swift in Sources */,
 				CF6A5F1229CBD2B000267D85 /* FixtureCellViewModel.swift in Sources */,
+				CF6A5F7C29D1F0FC00267D85 /* Color+Custom.swift in Sources */,
 				CF24A63429CA82C70027BFC0 /* FixturesResponse.swift in Sources */,
 				CF6A5F2829CFD33600267D85 /* AppState.swift in Sources */,
 				CF6A5F4229D0ACDA00267D85 /* FixturesService.swift in Sources */,

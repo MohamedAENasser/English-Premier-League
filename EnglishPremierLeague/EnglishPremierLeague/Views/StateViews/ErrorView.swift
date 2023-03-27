@@ -16,7 +16,6 @@ struct ErrorView: View {
             Image("Warning-icon")
                 .resizable()
                 .frame(width: 150, height: 150)
-                .foregroundColor(.yellow)
                 .padding(.bottom, 50)
 
             Text(error.description)
@@ -30,7 +29,7 @@ struct ErrorView: View {
                     .labelStyle(.iconOnly)
             }
             .buttonStyle(.borderless)
-            .foregroundColor(.black)
+            .foregroundColor(.defaultTextColor)
             .scaleEffect(3)
             .padding(.top, 20)
         }

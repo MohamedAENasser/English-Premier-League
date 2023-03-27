@@ -70,7 +70,7 @@ struct FixturesView: View {
             .scrollContentBackground(.hidden)
             .listStyle(.insetGrouped)
         }
-        .background(Color.purple)
+        .background(Color.backgroundColor)
     }
 
     var showFavoritesToggleView: some View {
@@ -81,10 +81,10 @@ struct FixturesView: View {
                 Toggle(isOn: $shouldShowFavoritesOnly) {
                     Text(shouldShowFavoritesOnly ? "Show all matches" : "Show favorites only")
                 }
-                .tint(.purple)
+                .tint(.selectedColor)
                 .padding(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
             }
-            .background(Color.white)
+            .background(Color.lightElementsBackgroundColor)
             .clipShape(Capsule())
             .padding([.leading, .trailing])
 
@@ -93,7 +93,7 @@ struct FixturesView: View {
     }
 
     func daySectionView(from day: String, matches: [Match]) -> some View {
-        Section(header: Text(day)) {
+        Section(header: Text(day).font(.body).fontWeight(.bold)) {
             ForEach(matches) { match in
                 FixtureCell(match: match)
             }
