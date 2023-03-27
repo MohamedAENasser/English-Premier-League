@@ -9,6 +9,7 @@ import Foundation
 import Moya
 
 protocol FixturesServiceProtocol {
+    var provider: MoyaProvider<EnglishLeagueTarget> { get set }
     func getMatches() async -> Result<[Match], AppError>
 }
 

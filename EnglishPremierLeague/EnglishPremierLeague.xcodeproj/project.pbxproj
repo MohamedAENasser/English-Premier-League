@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BFFBC3DCDDC4AA8B1DF3274 /* Pods_EnglishPremierLeagueTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016456DCC9C69CD2F116350F /* Pods_EnglishPremierLeagueTests.framework */; };
 		CF158FCF29CB74D100496F65 /* FixturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158FCE29CB74D100496F65 /* FixturesView.swift */; };
 		CF158FD129CB74D900496F65 /* FixturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF158FD029CB74D900496F65 /* FixturesViewModel.swift */; };
 		CF24A62129CA50790027BFC0 /* EnglishPremierLeagueApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF24A62029CA50790027BFC0 /* EnglishPremierLeagueApp.swift */; };
@@ -25,12 +26,28 @@
 		CF6A5F3029D05EC700267D85 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F2F29D05EC700267D85 /* AppError.swift */; };
 		CF6A5F3229D0874700267D85 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F3129D0874700267D85 /* EmptyStateView.swift */; };
 		CF6A5F4229D0ACDA00267D85 /* FixturesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F4129D0ACDA00267D85 /* FixturesService.swift */; };
+		CF6A5F6329D0F6F800267D85 /* FixturesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F6229D0F6F800267D85 /* FixturesViewModelTests.swift */; };
+		CF6A5F6D29D1108400267D85 /* Utils+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F6C29D1108400267D85 /* Utils+SampleData.swift */; };
+		CF6A5F6F29D114BC00267D85 /* Date+DaysDifference.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6A5F6E29D114BC00267D85 /* Date+DaysDifference.swift */; };
 		EF7AFA95B94547A8652DDBDB /* Pods_EnglishPremierLeague.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CF6A5F6429D0F6F800267D85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF24A61529CA50790027BFC0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF24A61C29CA50790027BFC0;
+			remoteInfo = EnglishPremierLeague;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		016456DCC9C69CD2F116350F /* Pods_EnglishPremierLeagueTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnglishPremierLeagueTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D35F6B0B665266D39E12247 /* Pods-EnglishPremierLeague.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishPremierLeague.release.xcconfig"; path = "Target Support Files/Pods-EnglishPremierLeague/Pods-EnglishPremierLeague.release.xcconfig"; sourceTree = "<group>"; };
 		82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnglishPremierLeague.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1C14D744FF2D66503A1A48 /* Pods-EnglishPremierLeagueTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishPremierLeagueTests.debug.xcconfig"; path = "Target Support Files/Pods-EnglishPremierLeagueTests/Pods-EnglishPremierLeagueTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BAF21EBB4704E88B7234D25E /* Pods-EnglishPremierLeagueTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishPremierLeagueTests.release.xcconfig"; path = "Target Support Files/Pods-EnglishPremierLeagueTests/Pods-EnglishPremierLeagueTests.release.xcconfig"; sourceTree = "<group>"; };
 		C24A8D9402334CA220881399 /* Pods-EnglishPremierLeague.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnglishPremierLeague.debug.xcconfig"; path = "Target Support Files/Pods-EnglishPremierLeague/Pods-EnglishPremierLeague.debug.xcconfig"; sourceTree = "<group>"; };
 		CF158FCE29CB74D100496F65 /* FixturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesView.swift; sourceTree = "<group>"; };
 		CF158FD029CB74D900496F65 /* FixturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesViewModel.swift; sourceTree = "<group>"; };
@@ -51,6 +68,10 @@
 		CF6A5F2F29D05EC700267D85 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		CF6A5F3129D0874700267D85 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		CF6A5F4129D0ACDA00267D85 /* FixturesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesService.swift; sourceTree = "<group>"; };
+		CF6A5F6029D0F6F700267D85 /* EnglishPremierLeagueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnglishPremierLeagueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF6A5F6229D0F6F800267D85 /* FixturesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesViewModelTests.swift; sourceTree = "<group>"; };
+		CF6A5F6C29D1108400267D85 /* Utils+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utils+SampleData.swift"; sourceTree = "<group>"; };
+		CF6A5F6E29D114BC00267D85 /* Date+DaysDifference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DaysDifference.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +83,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CF6A5F5D29D0F6F700267D85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BFFBC3DCDDC4AA8B1DF3274 /* Pods_EnglishPremierLeagueTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -70,6 +99,8 @@
 			children = (
 				C24A8D9402334CA220881399 /* Pods-EnglishPremierLeague.debug.xcconfig */,
 				6D35F6B0B665266D39E12247 /* Pods-EnglishPremierLeague.release.xcconfig */,
+				8D1C14D744FF2D66503A1A48 /* Pods-EnglishPremierLeagueTests.debug.xcconfig */,
+				BAF21EBB4704E88B7234D25E /* Pods-EnglishPremierLeagueTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -78,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				82FFCBEE067CC88B81FD4D80 /* Pods_EnglishPremierLeague.framework */,
+				016456DCC9C69CD2F116350F /* Pods_EnglishPremierLeagueTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -97,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				CF24A61F29CA50790027BFC0 /* EnglishPremierLeague */,
+				CF6A5F6129D0F6F800267D85 /* EnglishPremierLeagueTests */,
 				CF24A61E29CA50790027BFC0 /* Products */,
 				610202F368C2FDAFCA90C320 /* Pods */,
 				B6777E86336E1CB7631FF5DE /* Frameworks */,
@@ -107,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				CF24A61D29CA50790027BFC0 /* EnglishPremierLeague.app */,
+				CF6A5F6029D0F6F700267D85 /* EnglishPremierLeagueTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				CF6A5F2029CFB8B400267D85 /* UserDefaults+Favorites.swift */,
+				CF6A5F6E29D114BC00267D85 /* Date+DaysDifference.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,6 +246,23 @@
 				CF6A5F4129D0ACDA00267D85 /* FixturesService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		CF6A5F6129D0F6F800267D85 /* EnglishPremierLeagueTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF6A5F6B29D1107300267D85 /* Extensions */,
+				CF6A5F6229D0F6F800267D85 /* FixturesViewModelTests.swift */,
+			);
+			path = EnglishPremierLeagueTests;
+			sourceTree = "<group>";
+		};
+		CF6A5F6B29D1107300267D85 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CF6A5F6C29D1108400267D85 /* Utils+SampleData.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +287,26 @@
 			productReference = CF24A61D29CA50790027BFC0 /* EnglishPremierLeague.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CF6A5F5F29D0F6F700267D85 /* EnglishPremierLeagueTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF6A5F6829D0F6F800267D85 /* Build configuration list for PBXNativeTarget "EnglishPremierLeagueTests" */;
+			buildPhases = (
+				56CA190169764668DC2DE678 /* [CP] Check Pods Manifest.lock */,
+				CF6A5F5C29D0F6F700267D85 /* Sources */,
+				CF6A5F5D29D0F6F700267D85 /* Frameworks */,
+				CF6A5F5E29D0F6F700267D85 /* Resources */,
+				78C64E15EBBE5D03EBD85EF6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF6A5F6529D0F6F800267D85 /* PBXTargetDependency */,
+			);
+			name = EnglishPremierLeagueTests;
+			productName = EnglishPremierLeagueTests;
+			productReference = CF6A5F6029D0F6F700267D85 /* EnglishPremierLeagueTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -247,6 +319,10 @@
 				TargetAttributes = {
 					CF24A61C29CA50790027BFC0 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					CF6A5F5F29D0F6F700267D85 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = CF24A61C29CA50790027BFC0;
 					};
 				};
 			};
@@ -264,6 +340,7 @@
 			projectRoot = "";
 			targets = (
 				CF24A61C29CA50790027BFC0 /* EnglishPremierLeague */,
+				CF6A5F5F29D0F6F700267D85 /* EnglishPremierLeagueTests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,6 +352,13 @@
 			files = (
 				CF24A62829CA507B0027BFC0 /* Preview Assets.xcassets in Resources */,
 				CF24A62529CA507B0027BFC0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF6A5F5E29D0F6F700267D85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +385,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56CA190169764668DC2DE678 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EnglishPremierLeagueTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78C64E15EBBE5D03EBD85EF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EnglishPremierLeagueTests/Pods-EnglishPremierLeagueTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EnglishPremierLeagueTests/Pods-EnglishPremierLeagueTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnglishPremierLeagueTests/Pods-EnglishPremierLeagueTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A7C2A01BE75B1450CA6A99CB /* [CP] Embed Pods Frameworks */ = {
@@ -333,6 +456,7 @@
 				CF24A63429CA82C70027BFC0 /* FixturesResponse.swift in Sources */,
 				CF6A5F2829CFD33600267D85 /* AppState.swift in Sources */,
 				CF6A5F4229D0ACDA00267D85 /* FixturesService.swift in Sources */,
+				CF6A5F6F29D114BC00267D85 /* Date+DaysDifference.swift in Sources */,
 				CF6A5F2629CFD2EB00267D85 /* LoadingView.swift in Sources */,
 				CF6A5F1C29CFA0FE00267D85 /* FavoriteButton.swift in Sources */,
 				CF6A5F1029CBBFF300267D85 /* FixtureCell.swift in Sources */,
@@ -346,7 +470,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CF6A5F5C29D0F6F700267D85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF6A5F6329D0F6F800267D85 /* FixturesViewModelTests.swift in Sources */,
+				CF6A5F6D29D1108400267D85 /* Utils+SampleData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF6A5F6529D0F6F800267D85 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF24A61C29CA50790027BFC0 /* EnglishPremierLeague */;
+			targetProxy = CF6A5F6429D0F6F800267D85 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CF24A62929CA507B0027BFC0 /* Debug */ = {
@@ -523,6 +664,42 @@
 			};
 			name = Release;
 		};
+		CF6A5F6629D0F6F800267D85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D1C14D744FF2D66503A1A48 /* Pods-EnglishPremierLeagueTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MohamedAENasser.EnglishPremierLeagueTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EnglishPremierLeague.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EnglishPremierLeague";
+			};
+			name = Debug;
+		};
+		CF6A5F6729D0F6F800267D85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAF21EBB4704E88B7234D25E /* Pods-EnglishPremierLeagueTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MohamedAENasser.EnglishPremierLeagueTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EnglishPremierLeague.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EnglishPremierLeague";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -540,6 +717,15 @@
 			buildConfigurations = (
 				CF24A62C29CA507B0027BFC0 /* Debug */,
 				CF24A62D29CA507B0027BFC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF6A5F6829D0F6F800267D85 /* Build configuration list for PBXNativeTarget "EnglishPremierLeagueTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF6A5F6629D0F6F800267D85 /* Debug */,
+				CF6A5F6729D0F6F800267D85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

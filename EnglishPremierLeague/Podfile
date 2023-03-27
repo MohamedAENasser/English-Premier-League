@@ -7,5 +7,11 @@ target 'EnglishPremierLeague' do
 
   pod 'Moya'
   pod 'Moya/Combine'
+       
+  target 'EnglishPremierLeagueTests' do
+      inherit! :search_paths
+      pod 'Moya'
+      pod 'Moya/Combine'
+  end
 
 end

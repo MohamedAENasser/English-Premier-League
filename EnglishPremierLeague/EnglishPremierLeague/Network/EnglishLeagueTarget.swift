@@ -51,4 +51,9 @@ extension EnglishLeagueTarget: TargetType {
             "X-Auth-Token": EnglishLeagueTarget.apiKey
         ]
     }
+
+    var sampleData: Data {
+        let data = try? JSONEncoder().encode(Utils.sampleData)
+        return data ?? Data()
+    }
 }

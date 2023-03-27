@@ -13,4 +13,6 @@ enum Utils {
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
+
+    static var sampleData: FixturesResponse<Match> = FixturesResponse<Match>(matches: [])
 }

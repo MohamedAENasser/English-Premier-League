@@ -13,12 +13,11 @@ class FixturesViewModel: ObservableObject {
     var fixturesService: FixturesServiceProtocol = FixturesService()
 
     // MARK: - Helper properties
-    private var fullMatchesList: [String : [Match]] = [:]
-    private var visibleDaysStringList: [String] = []
-    private var fullDaysStringList: [String] = []
-    private var fullDaysDateList: [Date] = []
-    private var mostRecentDayIndex: Int = 0
-    private var loadDaysCount: Int = 1
+    var fullMatchesList: [String : [Match]] = [:]
+    var visibleDaysStringList: [String] = []
+    var fullDaysStringList: [String] = []
+    var mostRecentDayIndex: Int = 0
+    var loadDaysCount: Int = 1
 
     /// Get matches data from the backend.
     @MainActor
@@ -82,19 +81,12 @@ class FixturesViewModel: ObservableObject {
 
         // Setup Helper properties that will be used later for filtration and load
         fullDaysStringList = Array(fullMatchesList.keys).sorted(by: <)
-        fullDaysDateList = fullDaysStringList.map { Utils.fixturesDateFormatter.date(from: $0) ?? Date() }
 
-        setupMostRecentMatchesDay()
-        setupInitialVisibleDays()
-    }
+        // Getting the matches that will be played today or tomorrow, if nothing found then will pickup the most recent upcoming day that has matches.
+        let fullDaysDateList = fullDaysStringList.map { Utils.fixturesDateFormatter.date(from: $0) ?? Date() }
+        mostRecentDayIndex = fullDaysDateList.firstIndex(where: { Date().daysDifference(from: $0) >= 0 }) ?? 0
 
-    /// Getting the matches that will be played today or tomorrow, if nothing found then will pickup the most recent upcoming day that has matches.
-    private func setupMostRecentMatchesDay() {
-        mostRecentDayIndex = fullDaysDateList.firstIndex(where: { $0 >= Date() }) ?? 0
-    }
-
-    /// Setup initial visible matches to be the most recent for today or the nearest upcoming day.
-    private func setupInitialVisibleDays() {
+        // Setup initial visible matches to be the most recent for today or the nearest upcoming day.
         state = .success(Array(fullDaysStringList[mostRecentDayIndex..<fullDaysStringList.count]))
     }
 }

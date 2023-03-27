@@ -90,6 +90,6 @@ struct FixtureCell: View {
 
 struct FixtureCell_Previews: PreviewProvider {
     static var previews: some View {
-        FixtureCell(match: Match(id: 0, awayTeam: Team(id: 0, name: "Away"), homeTeam: Team(id: 1, name: "Home"), matchDay: 0, score: nil, status: "", utcDate: "nil"))
+        FixtureCell(match: Match(id: 0, awayTeam: Team(id: 0, name: "Away"), homeTeam: Team(id: 1, name: "Home"), score: nil, status: "", utcDate: "nil"))
     }
 }

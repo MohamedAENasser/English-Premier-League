@@ -9,14 +9,13 @@ import Foundation
 
 // MARK: - FixturesResponse
 struct FixturesResponse<T: Codable>: Codable {
-    let matches: [T]
+    var matches: [T]
 }
 
 // MARK: - Match
 struct Match: Codable, Identifiable {
     let id: Int
     let awayTeam, homeTeam: Team
-    let matchDay: Int
     let score: Score?
     let status: String
     let utcDate: String
@@ -29,17 +28,6 @@ struct Match: Codable, Identifiable {
     var matchDateString: String {
         return Utils.fixturesDateFormatter.string(from: matchDate)
     }
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case awayTeam
-        case homeTeam
-        case matchDay = "matchday"
-        case score
-        case status
-        case utcDate
-        case isFavorite
-    }
 }
 
 // MARK: - Team
@@ -50,8 +38,7 @@ struct Team: Codable {
 
 // MARK: - Score
 struct Score: Codable {
-    let duration: String
-    let extraTime, fullTime, halfTime, penalties: TimeModel
+    let fullTime: TimeModel
     let winner: String?
 }
 
